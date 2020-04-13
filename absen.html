@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8"/>
+    <title>BAQI</title>
+    <meta name="dicoding:email" content="rootmawar77@gmail.com">
+    <meta name="description" content="BAQI Web Apps"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#569968"/>
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <!-- <script src="https://kit.fontawesome.com/0ce96b1b1b.js" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+</head>
+
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-background">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="bg-top z-depth-3 scale-transition scale-out" id="anim1">
+        <div class="row top-part">
+            <div class="col s2" style="margin-top: 19px;">
+                <a class="left white-text btn-floating waves-effect waves-light blue-grey lighten-2 z-depth-4" href="home.html"><i class="far fa-chevron-left"></i></a>
+            </div>
+            <div class="col s10">
+                <a class="white-text title-bold text-shadow left" href="#!" class="brand-logo"><h4><b>BAQI Apps</b></h4></a>
+            </div>
+        </div>      
+    </div>
+
+    <!-- content -->
+    <br><br><br><br>
+        <!-- Modal Trigger -->
+        <div class="container scale-transition scale-out" id="anim3"><center>
+        <a class="red darken-2 waves-effect waves-light btn modal-trigger z-depth-3" href="#modal1" style="text-align: center;margin-bottom: 13px;margin-top: 5px;">Petunjuk penggunaan!</a></center>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Petunjuk pemakaian QR Generator</h4>
+                <p>1. Buatlah QR saat ada instruksi</p>
+                <p>2. Isikan data selengkap mungkin!</p>
+                <p></p>
+                <p>3. Scan kode QR kepada pengurus BAQI saja!</p>
+                <p>4. Setiap penyalahgunaan akan mendapatkan sanksi</p>
+                <p>5. Apabila ada pertanyaan, silahkan klik menu kontak BAQI/hubungi pengurus terdekat</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Mengerti!</a>
+            </div>
+        </div>
+    <div class="container scale-transition scale-out" id="anim2">
+        <div class="card round-border z-depth-5" style="background-color: #fdffc9;">
+            <div class="card-content black-text">
+                <div class="row">
+                    <form class="col s12" id="generator">
+                        <span class="card-title text-shadow-2" style="font-weight: 500;font-size: 22px;padding-bottom: 5px;"><font color="green"><i class="fad fa-qrcode fa-swap-opacity"></i></font>  Absen QR</span>
+                        <div class="input-field">
+                            <input id="fullName" type="text" >
+                            <label for="fullName">Nama Lengkap</label>
+                            
+                        </div>
+                        <div class="input-field">
+                            <input id="NIM" type="number"  min="1900000">
+                            <label for="NIM">Nomor Identitas Mahasiswa</label>
+                            
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="fakultas" onchange="showDiv(this);">
+                                <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                                <option value="FIP">FIP</option>
+                                <option value="FPIPS">FPIPS</option>
+                                <option value="FPBS">FPBS</option>
+                                <option value="FPMIPA">FPMIPA</option>
+                                <option value="FPTK">FPTK</option>
+                                <option value="FPOK">FPOK</option>
+                                <option value="FPEB">FPEB</option>
+                                <option value="FPSD">FPSD</option>
+                            </select>
+                            <label>Fakultas</label>
+                        </div>
+                        <!-- Hidden Elements -->
+
+                        <!-- FIP -->
+                        <div id="fip" class="input-field col s12" style="display:none;">
+                            <select id="jurusan1">
+                                <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                                <option value="Administrasi Pendidikan">Administrasi Pendidikan</option>
+                                <option value="Bimbingan dan Konseling">Bimbingan dan Konseling</option>
+                                <option value="Teknologi Pendidikan">Teknologi Pendidikan</option>
+                                <option value="Psikologi">Psikologi</option>
+                                <option value="Pendidikan Masyarakat">Pendidikan Masyarakat</option>
+                                <option value="Pendidikan Khusus">Pendidikan Khusus</option>
+                                <option value="Perpustakaan dan Informasi">Perpustakaan dan Informasi</option>
+                                <option value="Pendidikan Guru Sekolah Dasar (PGSD) Guru Kelas">Pendidikan Guru Sekolah Dasar (PGSD) Guru Kelas</option>
+                                <option value="Pendidikan Guru PAUD ">Pendidikan Guru PAUD</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelas1" minlength="1" placeholder="Kelas">
+                                    
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" id="kelompok1"  minlength="4" placeholder="Kelompok BBQ">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FPIPS -->
+                        <div id="fpips" class="input-field col s12" style="display:none;">
+                            <select id="jurusan2">
+                                <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                                <option value="Pendidikan Kewarganegaraan">Pendidikan Kewarganegaraan</option>
+                                <option value="Pendidikan Sejarah">Pendidikan Sejarah</option>
+                                <option value="Pendidiikan Geografi">Pendidiikan Geografi</option>
+                                <option value="Manajemen Pemasaran Pariwisata">Manajemen Pemasaran Pariwisata</option>
+                                <option value="Manajemen Resort & Leisure">Manajemen Resort & Leisure</option>
+                                <option value="Manajemen Industri Katering">Manajemen Industri Katering</option>
+                                <option value="Ilmu Pendidikan Agama Islam">Ilmu Pendidikan Agama Islam</option>
+                                <option value="Pendidikan Ilmu Pengetahuan Sosial">Pendidikan Ilmu Pengetahuan Sosial</option>
+                                <option value="Pendidikan Sosiologi">Pendidikan Sosiologi</option>
+                                <option value="Sains Informasi Geografi">Sains Informasi Geografi</option>
+                                <option value="Survey Pemetaan dan Informasi Geografis - D3">Survey Pemetaan dan Informasi Geografis - D3</option>
+                                <option value="Pendidikan Pariwisata">Pendidikan Pariwisata</option>
+                                <option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text" id="kelas2"  minlength="1" placeholder="Kelas">
+                                    
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelompok2" minlength="4" placeholder="Kelompok BBQ">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FPBS -->
+                        <div id="fpbs" class="input-field col s12" style="display:none;">
+                            <select id="jurusan3">
+                            <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                            <option value="Pendidikan Bahasa dan Sastra Indonesia">Pendidikan Bahasa dan Sastra Indonesia</option>
+                            <option value="Pendidikan Bahasa Sunda">Pendidikan Bahasa Sunda</option>
+                            <option value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+                            <option value="Pendidikan Bahasa Jerman">Pendidikan Bahasa Jerman</option>
+                            <option value="Pendidikan Bahasa Arab">Pendidikan Bahasa Arab</option>
+                            <option value="Pendidikan Bahasa Jepang">Pendidikan Bahasa Jepang</option>
+                            <option value="Pendidikan Bahasa Perancis">Pendidikan Bahasa Perancis</option>
+                            <option value="Bahasa dan Sastra Indonesia">Bahasa dan Sastra Indonesia</option>
+                            <option value="Bahasa dan Sastra Inggris">Bahasa dan Sastra Inggris</option>
+                            <option value="Pendidikan Bahasa Korea">Pendidikan Bahasa Korea</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelas3" minlength="1" placeholder="Kelas">
+                                    
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelompok3" minlength="4" placeholder="Kelompok BBQ">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FPMIPA -->
+                        <div id="fpmipa" class="input-field col s12" style="display:none;">
+                            <select id="jurusan4">
+                            <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                            <option value="Pendidikan Matematika">Pendidikan Matematika</option>
+                            <option value="Pendidikan Kimia">Pendidikan Kimia</option>
+                            <option value="Pendidikan Biologi">Pendidikan Biologi</option>
+                            <option value="Pendidikan Fisika">Pendidikan Fisika</option>
+                            <option value="Pendidikan Ilmu Komputer">Pendidikan Ilmu Komputer</option>
+                            <option value="Matematika">Matematika</option>
+                            <option value="Kimia">Kimia</option>
+                            <option value="Biologi">Biologi</option>
+                            <option value="Fisika">Fisika</option>
+                            <option value="Ilmu Komputer">Ilmu Komputer</option>
+                            <option value="IPSE">IPSE</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelas4" minlength="1" placeholder="Kelas">
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelompok4" minlength="4" placeholder="Kelompok BBQ">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FPTK -->
+                        <div id="fptk" class="input-field col s12" style="display:none;">
+                            <select id="jurusan5">
+                            <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                            <option value="Pendidikan Teknik Arsitektur">Pendidikan Teknik Arsitektur</option>
+                            <option value="Pendidikan Teknik Bangunan">Pendidikan Teknik Bangunan</option>
+                            <option value="Pendidikan Teknik Elektro">Pendidikan Teknik Elektro</option>
+                            <option value="Pendidikan Teknik Mesin">Pendidikan Teknik Mesin</option>
+                            <option value="Pendidikan Kesejahteraan Keluarga">Pendidikan Kesejahteraan Keluarga</option>
+                            <option value="Pendidikan Tata Boga">Pendidikan Tata Boga</option>
+                            <option value="Pendidikan Tata Busana">Pendidikan Tata Busana</option>
+                            <option value="Pendidikan Teknologi Agro Industri">Pendidikan Teknologi Agro Industri</option>
+                            <option value="Teknik Elektro">Teknik Elektro</option>
+                            <option value="Teknik Sipil">Teknik Sipil</option>
+                            <option value="Arsitektur">Arsitektur</option>
+                            <option value="Teknik Elektro - D3">Teknik Elektro - D3</option>
+                            <option value="Teknik Mesin">Teknik Mesin - D3</option>
+                            <option value="Pendidikan Teknik Otomotif">Pendidikan Teknik Otomotif</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelas5" minlength="1" placeholder="Kelas">
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelompok5" minlength="4" placeholder="Kelompok BBQ">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FPOK -->
+                        <div id="fpok" class="input-field col s12" style="display:none;">
+                            <select id="jurusan6">
+                            <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                            <option value="Pendidikan Jasmani, Kesehatan dan Rekreasi">Pendidikan Jasmani, Kesehatan dan Rekreasi</option>
+                            <option value="Pendidikan Kepelatihan Olahraga">Pendidikan Kepelatihan Olahraga</option>
+                            <option value="Ilmu Keolahragaan">Ilmu Keolahragaan</option>
+                            <option value="PGSD Pendidikan Jasmani">PGSD Pendidikan Jasmani</option>
+                            <option value="Keperawatan - D3">Keperawatan - D3</option>
+                            <option value="Kepelatihan Fisik Olahraga">Kepelatihan Fisik Olahraga</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelas6" minlength="1" placeholder="Kelas">
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelompok6" minlength="4" placeholder="Kelompok BBQ">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FPEB -->
+                        <div id="fpeb" class="input-field col s12" style="display:none;">
+                            <select id="jurusan7">
+                            <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                            <option value="Pendidikan Akuntansi">Pendidikan Akuntansi</option>
+                            <option value="Pendidikan Bisnis">Pendidikan Bisnis</option>
+                            <option value="Pendidikan Manajemen Perkantoran">Pendidikan Manajemen Perkantoran</option>
+                            <option value="Pendidikan Ekonomi">Pendidikan Ekonomi</option>
+                            <option value="Akuntansi">Akuntansi</option>
+                            <option value="Manajemen">Manajemen</option>
+                            <option value="Ilmu Ekonomi dan Keuangan Islam">Ilmu Ekonomi dan Keuangan Islam</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelas7" minlength="1" placeholder="Kelas">
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelompok7" minlength="4" placeholder="Kelompok BBQ">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FPSD -->
+                        <div id="fpsd" class="input-field col s12" style="display:none;">
+                            <select id="jurusan8">
+                            <option value="kosong" selected disabled="">-----Pilihan-----</option>
+                            <option value="Pendidikan Seni Rupa">Pendidikan Seni Rupa</option>
+                            <option value="Pendidikan Seni Musik">Pendidikan Seni Musik</option>
+                            <option value="Pendidikan Seni Tari">Pendidikan Seni Tari</option>
+                            <option value="Desain Komunikasi Visual">Desain Komunikasi Visual</option>
+                            <option value="Film dan Televisi">Film dan Televisi</option>
+                            </select>
+                            <label>Jurusan</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelas8" minlength="1" placeholder="Kelas">
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text"  id="kelompok8" minlength="4" placeholder="Kelompok BBQ">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End of Hidden Elements -->
+                        <button type="submit" class="waves-effect waves-light btn blue-grey darken-2">Submit</button>
+                        
+                    </form>
+                    <div id="code" class="code"></div>
+                    <div id="errorQR" style="display: none;">
+                        <p>Ada kesalahan pada kode QR, mohon untuk tidak digunakan apabila muncul</p>
+                        <p>Silahkan refresh halaman ini</p><br>
+                        <a class="waves-effect waves-light btn blue-grey darken-2" onclick="location.reload();">Refresh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- footer -->
+   <footer class="page-footer yellow lighten-5" style="padding-top: 0px;">
+        <div class="footer-copyright">
+            <div class="container grey-text">
+                Made with ❤ - ©2020
+                <a class="grey-text right" href="home.html">UKM BAQI UPI</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB Toolbar -->
+    <div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large blue-grey darken-2" onclick="changeColor()">
+          <i class="far fa-bars"></i>
+        </a>
+        <ul>
+          <li class="waves-effect waves-light"><a href="home.html" onclick="colorChange()"><i id="text-color1" class="fas fa-home fa-2x fa-swap-opacity transparent-text"></i></a></li>
+          <li class="waves-effect waves-light"><a href="about.html" onclick="colorChange()"><i id="text-color2" class="fad fa-info-circle fa-2x fa-swap-opacity transparent-text"></i></a></li>
+          <li class="waves-effect waves-light"><a href="contact.html" onclick="colorChange()"><i id="text-color3" class="fad fa-phone-plus fa-2x transparent-text"></i></a></li>
+          <li class="waves-effect waves-light"><a href="#!" onclick="colorChange()"><i id="text-color4" class="far fa-undo-alt fa-2x transparent-text"></i></a></li>
+        </ul>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>   
+  <script src="js/materialize.js">s</script>
+  <script type="text/javascript">var anim = 3;</script>
+  <script src="js/my.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/selector.js"></script>
+</body>
+</html>

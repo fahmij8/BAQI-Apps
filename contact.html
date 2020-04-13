@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8"/>
+    <title>BAQI</title>
+    <meta name="dicoding:email" content="rootmawar77@gmail.com">
+    <meta name="description" content="BAQI Web Apps"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#569968"/>
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <!-- <script src="https://kit.fontawesome.com/0ce96b1b1b.js" crossorigin="anonymous"></script> -->
+</head>
+
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-background">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="bg-top z-depth-3 scale-transition scale-out" id="anim1">
+        <div class="row top-part">
+            <div class="col s2" style="margin-top: 19px;">
+                <a class="left white-text btn-floating waves-effect waves-light blue-grey lighten-2 z-depth-4" href="home.html"><i class="far fa-chevron-left"></i></a>
+            </div>
+            <div class="col s10">
+                <a class="white-text title-bold text-shadow left" href="#!" class="brand-logo"><h4><b>BAQI Apps</b></h4></a>
+            </div>
+        </div>      
+    </div>
+
+    <!-- content -->
+    <br><br><br><br><br><br>
+    <div class="container scale-transition scale-out" id="anim2">
+        <div class="card round-border z-depth-5" style="background-color: #fdffc9;">
+            <div class="card-content black-text">
+                <div class="row">
+                    <form class="col s12" id="generator">
+                        <span class="card-title text-shadow-2" style="font-weight: 500;font-size: 22px;padding-bottom: 5px;"><font color="green"><i class="fad fa-phone-plus"></i></font>  Kontak BAQI</span>
+                        <div class="input-field">
+                            <input id="Nama" type="text" >
+                            <label for="Nama">Nama Lengkap</label>
+                            
+                        </div>
+                        <div class="input-field">
+                            <input id="NIM" type="number">
+                            <label for="NIM">Nomor Identitas Mahasiswa</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="HP" type="number">
+                            <label for="HP">Nomor HP yang bisa dihubungi</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea id="Pesan" class="materialize-textarea"></textarea>
+                            <label for="Pesan">Pesan</label>
+                        </div>
+                        
+
+                        <!-- End of Hidden Elements -->
+                        <a class="waves-effect waves-light btn blue-grey darken-2" onclick="sendMail();">Submit</a>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- footer -->
+   <footer class="page-footer yellow lighten-5" style="padding-top: 0px;">
+        <div class="footer-copyright">
+            <div class="container grey-text">
+                Made with ❤ - ©2020
+                <a class="grey-text right" href="home.html">UKM BAQI UPI</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB Toolbar -->
+    <div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large blue-grey darken-2" onclick="changeColor()">
+          <i class="far fa-bars"></i>
+        </a>
+        <ul>
+          <li class="waves-effect waves-light"><a href="home.html" onclick="colorChange()"><i id="text-color1" class="fas fa-home fa-2x fa-swap-opacity transparent-text"></i></a></li>
+          <li class="waves-effect waves-light"><a href="about.html" onclick="colorChange()"><i id="text-color2" class="fad fa-info-circle fa-2x fa-swap-opacity transparent-text"></i></a></li>
+          <li class="waves-effect waves-light"><a href="absen.html" onclick="colorChange()"><i id="text-color3" class="fad fa-qrcode fa-2x transparent-text"></i></a></li>
+          <li class="waves-effect waves-light"><a href="#!" onclick="colorChange()"><i id="text-color4" class="far fa-undo-alt fa-2x transparent-text"></i></a></li>
+        </ul>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>   
+  <script src="js/materialize.js">s</script>
+  <script type="text/javascript">var anim = 2;</script>
+  <script src="js/my.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
